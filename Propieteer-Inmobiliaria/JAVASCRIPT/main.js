@@ -85,7 +85,7 @@ createApp({
 function validateLogin() {
     var password = document.getElementById("password").value;
     if (password !== "admin") {
-        alert("Password must be equal to 'admin'.");
+        alert("¡Contraseña incorrecta! Asegúrese de tener las credenciales válidas.");
         return false;
     } else {
         alert("Login successful!");
