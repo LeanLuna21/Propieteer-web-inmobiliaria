@@ -79,3 +79,12 @@ label{
         padding:1px;
     }
 }
+a:has(.brand){
+    text-decoration: none;
+    color:azure;
+    
+}
+a:has(.brand):hover{
+    color:rgba(253, 253, 253, 0.538);
+    font-weight: 100;
+}

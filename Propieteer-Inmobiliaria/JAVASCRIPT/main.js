@@ -39,7 +39,7 @@ ftr =
         <li>Av. Siempre Viva 1553</li>
         <li>1234-5678/ 11-9876-5432</li>
         <li><a href="mailto:propieteer@gmail.com">propieteer@gmail.com</a></li>
-        <li><a href="">Propieteer Administration</a></li>
+        <li><a href="admin-login.html">Propieteer Administration</a></li>
     </ul>
     <ul class="redes-container">
         <li><a href="https://www.instagram.com" target="_blank"><img src="../resources/instagram.svg" alt="propieteer instagram" class="redes"></a></li>
@@ -82,3 +82,15 @@ createApp({
     },
 }).mount('#app') 
 
+function validateLogin() {
+    var password = document.getElementById("password").value;
+    if (password !== "admin") {
+        alert("Password must be equal to 'admin'.");
+        return false;
+    } else {
+        alert("Login successful!");
+        window.location.href = "https://propieteer-administration.netlify.app/home.html";  // lo mandamos a la url deseada
+        return false; // hacemos que el form no se envie
+    }
+    
+}

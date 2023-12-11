@@ -28,25 +28,41 @@ td{
 tr:hover {
     background-image: linear-gradient(to bottom, #545e83, #6b6d95, #827da7, #9a8cb9, #b39cca, #b59dcc, #b69fcf, #b8a0d1, #a393c5, #8d87b9, #787bac, #626f9f);
 }
-@media screen and (max-width: 900px) {
-    .menu{
-        padding: 0px 10px;
-    }
-}
+
 
 .main-pestañas-admin{
     width: 100%;
     height: 70vh;
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
 }
-#admin-login tr th {
+#admin-login{
+    text-align: center;
+    font-family: 'Quicksand'!important;
+    font-weight: 700;
+    color: aliceblue;
+    height: auto;
+    width: 40vw;
     border: 0px solid white;
-    padding: 5px;
+    padding: 10px;
+    background-color: rgba(8, 8, 8, 0.799);
+
 }
 
-#admin-login tr:hover {
-    background-image:none;
+#admin-login>label, #admin-login>input{
+    font-family: 'Quicksand'!important;
+}
+#admin-login>input{
+    line-height: 5%;
+}
+
+@media screen and (max-width: 900px) {
+    .menu{
+        padding: 0px 10px;
+    }
+    #admin-login{
+        width:50vw;
+    }
 
 }

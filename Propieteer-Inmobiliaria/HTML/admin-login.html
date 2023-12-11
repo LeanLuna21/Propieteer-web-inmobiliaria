@@ -33,17 +33,14 @@
         </nav>
     </header>
     <main class="main-pestañas main-pestañas-admin">
-        <table id="admin-login">
-           <thead>
-                <tr>
-                    <th>Admin password:</th>
-                    <th> <input type="text" id="pass"> </th>
-                </tr>
-           </thead>
-        </table>
+           <form id="admin-login" onsubmit="return validateLogin()">
+                <label for="password">Admin password:</label>
+                <input type="password" id="password" name="password" required> </input>
+           </form>  
     </main>
     
-
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../JAVASCRIPT/main.js"></script>
 </body>
 
 </html>
