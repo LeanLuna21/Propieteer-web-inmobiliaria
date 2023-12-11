@@ -39,6 +39,7 @@ ftr =
         <li>Av. Siempre Viva 1553</li>
         <li>1234-5678/ 11-9876-5432</li>
         <li><a href="mailto:propieteer@gmail.com">propieteer@gmail.com</a></li>
+        <li><a href="">Propieteer Administration</a></li>
     </ul>
     <ul class="redes-container">
         <li><a href="https://www.instagram.com" target="_blank"><img src="../resources/instagram.svg" alt="propieteer instagram" class="redes"></a></li>
@@ -81,27 +82,3 @@ createApp({
     },
 }).mount('#app') 
 
-// createApp({
-//     data() {
-//         return {        
-//             error:false,
-//             url:"../resources/agents.json", 
-//             datos:{}
-//         }
-//     },
-//     methods:{
-//         fetchData(url){
-//             fetch(url)
-//                 .then(response => response.json()) 
-//                 .then(data => {
-//                     console.log(data)
-        
-//                     this.datos = data.agents 
-                
-//                 });
-//         }
-//     },
-//     created(){
-//         this.fetchData(this.url)
-//     },
-// }).mount('#app') 
