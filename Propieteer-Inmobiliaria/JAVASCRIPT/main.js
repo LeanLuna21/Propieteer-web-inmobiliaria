@@ -55,6 +55,16 @@ document.querySelector("head").innerHTML = hdr
 document.querySelector("header").innerHTML = nav
 document.querySelector("footer").innerHTML = ftr
 
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
 // inicio VUE 
 const { createApp } = Vue
 createApp({
