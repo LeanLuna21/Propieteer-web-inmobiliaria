@@ -9,6 +9,7 @@ const vendedoresView = Vue.createApp({
             /*atributos para el guardar los valores del formulario */
             apellido: "",
             idVendedor: 0,
+            descripcion:"",
             imagen: "",
             mail: "",
             matricula: "",
@@ -61,6 +62,7 @@ const vendedoresView = Vue.createApp({
                 nombre: this.nombre,
                 matricula: this.matricula,
                 profesion: this.profesion,
+                descripcion: this.descripcion,
                 mail: this.mail,
                 telefono: this.telefono,
                 sueldo: this.sueldo,

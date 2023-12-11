@@ -12,6 +12,7 @@ createApp({
       return {
         apellido:"",
         idVendedor:0,
+        descripcion:"",
         imagen:"",
         mail:"",
         matricula:"",
@@ -41,6 +42,7 @@ createApp({
                         this.nombre = data.nombre
                         this.matricula = data.matricula
                         this.profesion = data.profesion
+                        this.descripcion = data.descripcion
                         this.mail = data.mail
                         this.telefono = data.telefono
                         this.sueldo = data.sueldo
@@ -58,6 +60,7 @@ createApp({
                 nombre: this.nombre,
                 matricula: this.matricula,
                 profesion: this.profesion,
+                descripcion: this.descripcion,
                 mail: this.mail,
                 telefono: this.telefono,
                 sueldo: this.sueldo,
