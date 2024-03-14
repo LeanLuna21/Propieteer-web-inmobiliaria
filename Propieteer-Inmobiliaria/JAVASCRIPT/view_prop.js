@@ -3,7 +3,7 @@ const propiedadesView = Vue.createApp({
     return {
       propiedades: [],
       // si el backend esta corriendo local  usar localhost 5000(si no lo subieron a pythonanywhere)
-      url: "https://rominagg.pythonanywhere.com/propiedades", // si ya lo subieron a pythonanywhere
+      url: "https://leanluna.pythonanywhere.com/propiedades", // si ya lo subieron a pythonanywhere
       error: false,
       loading: true,
       /*atributos para el guardar los valores del formulario */

@@ -2,7 +2,7 @@ const vendedoresView = Vue.createApp({
     data() {
         return {
             vendedores: [],
-            url: 'https://rominagg.pythonanywhere.com/vendedores',   
+            url: 'https://leanluna.pythonanywhere.com/vendedores',   
             error: false,
             loading: true,
             /*atributos para el guardar los valores del formulario */

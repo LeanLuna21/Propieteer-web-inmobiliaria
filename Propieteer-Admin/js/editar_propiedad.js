@@ -22,7 +22,7 @@ createApp({
         propietario:"",
         tel_contacto:"",
         mail_contacto:"",
-        url:'https://rominagg.pythonanywhere.com/propiedades/' + id,
+        url:'https://leanluna.pythonanywhere.com/propiedades' + id,
        }  
     },
     methods: {

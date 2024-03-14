@@ -94,7 +94,7 @@ createApp({
 
 function validateLogin() {
     var password = document.getElementById("password").value;
-    if (password !== "admin") {
+    if (password !== "adminpassword1234") {
         alert("¡Contraseña incorrecta! Asegúrese de tener las credenciales válidas.");
         return false;
     } else {

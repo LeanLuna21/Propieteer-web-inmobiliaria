@@ -8,8 +8,8 @@ CORS(app) #modulo cors es para que me permita acceder desde el frontend al backe
 
 
 # configuro la base de datos, con el nombre el usuario y la clave
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:rominagargano@localhost/administracion'
-# URI de la BBDD                          driver de la BD  user:clave@URLBBDD/nombreBBDD
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://sqluser:password@localhost/administracion'
+# URI de la BBDD                     driver de la BD  user:clave@URLBBDD/nombreBBDD
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False #none
 db= SQLAlchemy(app)   #crea el objeto db de la clase SQLAlquemy
 ma=Marshmallow(app)   #crea el objeto ma de de la clase Marshmallow
@@ -26,9 +26,10 @@ class Vendedores(db.Model):   # la clase Producto hereda de db.Model
     imagen=db.Column(db.String(500))
     matricula=db.Column(db.String(50))
     profesion=db.Column(db.String(100))
+    descripcion=db.Column(db.String(200))
 
 
-    def __init__(self,nombre,apellido,telefono,mail,sueldo,imagen,matricula,profesion):   #crea el  constructor de la clase
+    def __init__(self,nombre,apellido,telefono,mail,sueldo,imagen,matricula,profesion,descripcion):   #crea el  constructor de la clase
         self.nombre=nombre
         self.apellido=apellido
         self.telefono=telefono
@@ -37,6 +38,7 @@ class Vendedores(db.Model):   # la clase Producto hereda de db.Model
         self.imagen=imagen
         self.matricula=matricula
         self.profesion=profesion
+        self.descripcion=descripcion
 
 
 
@@ -80,9 +82,7 @@ with app.app_context():
 #
 class VendedorSchema(ma.Schema):
     class Meta:
-        fields=('idVendedor','nombre','apellido','telefono','mail','sueldo','imagen','matricula','profesion')
-
-
+        fields=('idVendedor','nombre','apellido','telefono','mail','sueldo','imagen','matricula','profesion','descripcion')
 
 
 vendedor_schema=VendedorSchema()    
@@ -100,14 +100,10 @@ def get_Vendedores():
                                                  # trae todos los registros de la tabla
     return jsonify(result)                       # retorna un JSON de todos los registros de la tabla
 
-
-
-
 @app.route('/vendedores/<idVendedor>',methods=['GET'])
 def get_vendedor(idVendedor):
     vendedor=Vendedores.query.get(idVendedor)
     return vendedor_schema.jsonify(vendedor)   
-
 
 @app.route('/vendedores/<idVendedor>',methods=['DELETE'])
 def delete_vendedor(idVendedor):
@@ -115,7 +111,6 @@ def delete_vendedor(idVendedor):
     db.session.delete(vendedor)
     db.session.commit()                     # confirma el delete
     return vendedor_schema.jsonify(vendedor) # me devuelve un json con el registro eliminado
-
 
 @app.route('/vendedores', methods=['POST']) # crea ruta o endpoint
 def create_vendedor():
@@ -128,16 +123,15 @@ def create_vendedor():
     imagen=request.json['imagen']
     matricula=request.json['matricula']
     profesion=request.json['profesion']
-    new_vendedor=Vendedores(nombre,apellido,telefono,mail,sueldo,imagen,matricula,profesion)
+    descripcion=request.json['descripcion']
+    new_vendedor=Vendedores(nombre,apellido,telefono,mail,sueldo,imagen,matricula,profesion,descripcion)
     db.session.add(new_vendedor)
     db.session.commit() # confirma el alta
     return vendedor_schema.jsonify(new_vendedor)
 
-
 @app.route('/vendedores/<idVendedor>' ,methods=['PUT'])
 def update_vendedor(idVendedor):
     vendedor=Vendedores.query.get(idVendedor)
- 
     vendedor.nombre=request.json['nombre']
     vendedor.apellido=request.json['apellido']
     vendedor.telefono=request.json['telefono']
@@ -146,7 +140,7 @@ def update_vendedor(idVendedor):
     vendedor.imagen=request.json['imagen']
     vendedor.matricula=request.json['matricula']
     vendedor.profesion=request.json['profesion']
-   
+    vendedor.descripcion=request.json['descripcion']
 
     db.session.commit()    # confirma el cambio
     return vendedor_schema.jsonify(vendedor)  
@@ -174,8 +168,6 @@ def get_propiedades():
     result=propiedades_schema.dump(all_propiedades)  # el metodo dump() lo hereda de ma.schema y
                                                  # trae todos los registros de la tabla
     return jsonify(result)                       # retorna un JSON de todos los registros de la tabla
-
-
 
 
 @app.route('/propiedades/<idPropiedad>',methods=['GET'])
